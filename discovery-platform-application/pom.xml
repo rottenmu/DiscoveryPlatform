@@ -96,21 +96,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.nepxion.discovery.platform.application.PlatformMySqlApplication</mainClass>
-                    <layout>JAR</layout>
-                    <layers>
-                        <enabled>true</enabled>
-                    </layers>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <attach>false</attach>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
