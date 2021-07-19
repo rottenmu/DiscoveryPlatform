@@ -247,9 +247,19 @@
                         for (const k in routeJson) {
                             route.push(routeJson[k]);
                         }
-                        for (let i = 0; i < condition.length; i++) {
-                            addTabCondition(condition[i], route[i]);
+
+                        const len = Math.max(condition.length, route.length);
+                        for (let i = 0; i < len; i++) {
+                            let c = null, r = null;
+                            if (i < condition.length) {
+                                c = condition[i];
+                            }
+                            if (i < route.length) {
+                                r = route[i];
+                            }
+                            addTabCondition(c, r);
                         }
+
                         <#if entity.strategy!=''>
                         addStrategy(${entity.strategy});
                         <#else>
@@ -341,7 +351,7 @@
                             const spelConditionId = 'spelCondition' + index;
                             layer.open({
                                 type: 2,
-                                title: '<i class="layui-icon layui-icon-ok-circle"></i>&nbsp;检验条件',
+                                title: '<i class="layui-icon layui-icon-ok-circle" style="color: #1E9FFF;"></i>&nbsp;校验条件',
                                 content: 'verify?expression=' + escape($('#' + spelConditionId).val()),
                                 area: ['645px', '235px'],
                                 btn: '关闭',
